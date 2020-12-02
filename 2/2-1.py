@@ -1,4 +1,4 @@
-import os, sys, itertools
+import os, sys
 
 dirname, filename = os.path.split(os.path.abspath(sys.argv[0]))
 
