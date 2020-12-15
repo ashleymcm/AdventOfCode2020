@@ -65,7 +65,8 @@ def letsDoMatrixMath(matrix, vertices):
 
   return count
 
-#do the stupid thing
+#do the stupid thing. Note that we're using matrix math (linear algebra, discrete math, whatevs)
+#because recursion is just out of the question with so many possible combinations
 def countPossibleConfigurations(joltages):
   #append the starting voltage of 0 and then sort. Note that we don't have to append the backpack
   #because there's only ever the same path to it, so it is negligible.
