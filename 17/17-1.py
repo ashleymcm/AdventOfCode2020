@@ -11,7 +11,8 @@ INACTIVE = '.'
 
 def getCube(x, y, z):
   global dimension
-
+  #get dimension with key of coordinates, return INACTIVE otherwise since we know
+  #the dimension is infinite and default state is inactive
   return dimension.get((x, y, z), INACTIVE)
 
 def isActive(x, y, z):
@@ -21,8 +22,9 @@ def findNeighbours(x, y, z):
   range_x = range(x - 1, x + 2)
   range_y = range(y - 1, y + 2)
   range_z = range(z - 1, z + 2)
+  #get all combinations of coordinates
   neighbours = list(itertools.product(range_x, range_y, range_z))
-  neighbours.remove((x, y, z))
+  neighbours.remove((x, y, z)) #and then remove the current one since we are not our own neighbour
 
   return neighbours
 
@@ -47,8 +49,8 @@ def initializeDimension(starting_region):
 def cycleCubes(dimension):
   cycled_dimension = dict()
 
+  #loop through and apply the rules given to us in the problem
   for cube in dimension:
-    #add neighbours to dimension 
     number_of_active_neighbours = numberOfActiveNeighbours(*cube)
     if isActive(*cube):
       if number_of_active_neighbours == 2 or number_of_active_neighbours == 3:
